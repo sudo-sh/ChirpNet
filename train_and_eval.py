@@ -87,7 +87,7 @@ def create_dataloaders(h5_dir, label_dir, batch_size=1, train_split=0.8, num_wor
     test_dataset = Subset(dataset, test_indices)
 
     # Create data loaders
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers)
 
     return train_loader, test_loader
