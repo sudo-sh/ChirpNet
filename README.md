@@ -25,6 +25,7 @@ Radar-based object detection (OD) requires extensive pre-processing and complex 
     ```
 
 3. **Prepare the dataset**:
+    - Download the `data/` `saved_dl/` and `saved_checkpoint` folders from dropbox [Link](https://www.dropbox.com/scl/fo/7f7zusk5st1qbkuw56jpm/AMYx2xXQ0VQ0rKACWodFCCY?rlkey=gdipvo2u1usiyqhid42ais8tt&dl=0)
     - Place your dataset in the `data/` directory.
     - Modify the data loading scripts (`h5_dataloader.py`, `chirpnet_dataloader.py`) if necessary to match your dataset structure.
 
