@@ -1,0 +1,10 @@
+{
+    
+    "learning_rate": 0.0001,
+    "batch_size": 8,
+    "num_epochs": 1,
+    "num_anchors": 32,
+    "num_labels":8,
+    "device": "cuda:0",
+    "log_path":"train_logs/"
+}

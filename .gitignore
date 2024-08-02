@@ -1,0 +1,11 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+checkpoint/
+data/
+debug_picture/
+jobs/
+train_logs/
+saved_dl/
+saved_checkpoint/
