@@ -5,6 +5,7 @@ from chirpnet_dataloader import *
 from utils_train import *
 
 from torch.utils.data import DataLoader, Subset
+from torch.utils.data import random_split
 from torch.optim import Adam
 from tqdm import tqdm
 import matplotlib.pyplot as plt
@@ -71,7 +72,8 @@ def create_dataloaders(h5_dir, label_dir, batch_size=1, train_split=0.8, num_wor
     # Initialize the dataset
     #Turn Saved_loader to False if using new dataset
     dataset = CustomDataset(h5_dir, label_dir, radar_flag=True, device=device, saved_loader=True, bits=bits, noise_level=noise_level)
-
+    
+    '''Sequence
     # Calculate train and test sizes
     total_size = len(dataset)
     train_size = int(train_split * total_size)
@@ -87,6 +89,15 @@ def create_dataloaders(h5_dir, label_dir, batch_size=1, train_split=0.8, num_wor
     test_dataset = Subset(dataset, test_indices)
 
     # Create data loaders
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers)
+    '''
+
+    # Splitting the dataset into train and test
+    total_size = len(dataset)
+    train_size = int(train_split * total_size)
+    test_size = total_size - train_size
+    train_dataset, test_dataset = random_split(dataset, [train_size, test_size])
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers)
 
